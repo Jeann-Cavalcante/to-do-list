@@ -1,0 +1,14 @@
+{
+  "name": "to-do_list",
+  "version": "1.0.0",
+  "description": "Projeto para aperfeiçoar tecnicas com node",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "author": "\"Jean\"",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
