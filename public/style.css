@@ -112,6 +112,8 @@ ul li:nth-child(odd) {
   background: #272727;
 }
 
+/* nth-child(odd) alterna estilos */
+
 ul li:hover {
   background: #5a5a5a;
 }
@@ -238,4 +240,34 @@ div#btns a#btnNot:hover {
 div#btns a#btnYes:hover {
   background-color: #00aa2a;
   color: #fff;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px 15px 20px;
+  position: absolute;
+  width: 100%;
+  transition: all 0.7s ease-in-out;
+}
+
+.message-danger {
+  background-color: #ff0000;
+  color: #fff;
+}
+
+.message-success {
+  background-color: #00aa2a;
+  color: #fff;
+}
+
+span#close-message {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+span#close-message:hover {
+  color: #ccc;
 }

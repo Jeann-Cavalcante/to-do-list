@@ -12,6 +12,13 @@
     <title>To do list</title>
   </head>
   <body>
+    <% if (message !== '') {%>
+    <section class="message message-<%= type%>">
+      <p><%= message%></p>
+      <span id="close-message"><i class="bi bi-x"></i></span>
+    </section>
+    <%}%>
+
     <header>
       <% if (task == null) { %>
       <h1>TO DO LIST</h1>
@@ -68,8 +75,8 @@
         <p>Deseja realmente apagar a tarefa: <%= taskDelete.task %> ?</p>
         <div id="btns">
           <a id="btnNot" href="/">Não</a>
-        <a id="btnYes" href="/deleteOne/<%= taskDelete._id %>">Sim</a>
-        </div>        
+          <a id="btnYes" href="/deleteOne/<%= taskDelete._id %>">Sim</a>
+        </div>
       </div>
     </section>
     <% } %>
