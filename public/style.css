@@ -93,6 +93,7 @@ ul li {
 ul li a {
   text-decoration: none;
   color: #fff;
+  padding-left: 2rem;
 }
 
 ul li span {
@@ -270,4 +271,34 @@ span#close-message {
 
 span#close-message:hover {
   color: #ccc;
+}
+
+ul li.check-true {
+  background-color: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+ul li a.check-true::before {
+  content: "";
+  position: absolute;
+  border: solid #fff;
+  top: 26px;
+  left: 16px;
+  height: 15px;
+  width: 7px;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg); 
+   /* transform: rotate(45deg); rotaciona o elemento */
+}
+
+ul li a.check-false::before {
+  content: "";
+  position: absolute;
+  border: solid #fff;
+  top: 25px;
+  left: 16px;
+  height: 16px;
+  width: 16px;
+  border-width: 2px 2px 2px 2px;
 }

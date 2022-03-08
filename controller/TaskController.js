@@ -1,20 +1,21 @@
 const Task = require("../models/Task");
 
-let message = '';
-let type = '';
+let message = "";
+let type = "";
 
 const getAllTasks = async (req, res) => {
   try {
     setTimeout(() => {
-      message = '';
-    },2000) // apos dois segundos o message voltara ser vazio
+      message = "";
+    }, 2000); // apos dois segundos o message voltara ser vazio
     const tasksList = await Task.find();
-    return res.render("index", { 
-      tasksList, 
-      task: null, 
+    return res.render("index", {
+      tasksList,
+      task: null,
       taskDelete: null,
       message,
-      type });
+      type,
+    });
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
@@ -24,8 +25,8 @@ const createTask = async (req, res) => {
   const task = req.body; // buscando do body
 
   if (!task.task) {
-    message = 'insera um texto,  antes de adicionar a tarefa!'
-    type = 'danger'
+    message = "insera um texto,  antes de adicionar a tarefa!";
+    type = "danger";
     return res.redirect("/"); //Redirecionando a pag. (recarregando)
   }
 
@@ -68,16 +69,36 @@ const updateOneTask = async (req, res) => {
   }
 };
 
-const deleteOneTask = async(req, res) => {
+const deleteOneTask = async (req, res) => {
   try {
-    await Task.deleteOne({_id: req.params.id})
+    await Task.deleteOne({ _id: req.params.id });
     message = "Tarefa apagada com sucesso!";
     type = "success";
-    res.redirect("/")
-  }catch (err) {
+    res.redirect("/");
+  } catch (err) {
     res.status(500).send({ error: err.message });
   }
-}
+};
+
+const taskCheck = async (req, res) => {
+  try {
+    const task = await Task.findOne({ _id: req.params.id });
+
+    // If condicional ternária
+    task.check ? task.check = false : task.check = true;
+
+    // if (task.check) {
+    //   task.check = false;
+    // } else {
+    //   task.check = true;
+    // }
+
+    await Task.updateOne({ _id: req.params.id }, task);
+    res.redirect("/");
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+};
 
 // exportando como objeto
 module.exports = {
@@ -86,4 +107,5 @@ module.exports = {
   getById,
   updateOneTask,
   deleteOneTask,
+  taskCheck,
 };
