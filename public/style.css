@@ -68,6 +68,30 @@ button:hover {
   color: #fff;
 }
 
+@media (max-width: 700px) {
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  input {
+    width: 90vw;
+  }
+  button {
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  input::placeholder {
+    text-align: center;
+    padding: 0;
+    font-size: 0.8rem;
+  }
+  section ul li a.check-false::before {
+    top: 15px;
+  }
+}
+
 section#tasks {
   margin: 0.5rem;
 }
@@ -288,8 +312,8 @@ ul li a.check-true::before {
   height: 15px;
   width: 7px;
   border-width: 0 2px 2px 0;
-  transform: rotate(45deg); 
-   /* transform: rotate(45deg); rotaciona o elemento */
+  transform: rotate(45deg);
+  /* transform: rotate(45deg); rotaciona o elemento */
 }
 
 ul li a.check-false::before {
