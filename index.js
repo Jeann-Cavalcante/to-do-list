@@ -6,7 +6,7 @@ const connectToDb = require("./database/db");
 
 connectToDb(); //Conectando o mongoDb
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.set("view engine", "ejs"); //Especificando view engine
 app.use(express.static(path.join(__dirname, "public"))); //Especificando arquivos estaticos
